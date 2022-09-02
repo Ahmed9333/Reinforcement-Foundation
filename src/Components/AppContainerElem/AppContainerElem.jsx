@@ -9,13 +9,7 @@ import {
   CssBaseline,
   Divider,
   IconButton,
-  ListItem,
-  ListItemIcon,
-	ListItemText,
-  Typography,
-  Icon
 } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
@@ -42,9 +36,7 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
+  
   hide: {
     display: 'none',
   },
@@ -121,27 +113,8 @@ export default function PersistentDrawerLeft({
           </IconButton>
         </div>
         <Divider />
-        <List>
-          {menu.MenuSideBarSup.map((item, index) => (
-            <Link to={item.link} style={{ textDecoration: 'none' }}>
-							<ListItem button key={index}>
-								<ListItemIcon><Icon>{item.icon}</Icon></ListItemIcon>
-								<ListItemText primary={item.text} />
-							</ListItem>
-						</Link>
-          ))}
-        </List>
         <Divider />
-        <List>
-          {menu.MenuSideBarInf.map((item, index) => (
-            <a href={item.href} target='_blank' style={{ textDecoration: 'none' }}>
-							<ListItem button key={index}>
-								<ListItemIcon><Icon>{item.icon}</Icon></ListItemIcon>
-								<ListItemText primary={item.text} />
-							</ListItem>
-						</a>
-          ))}
-        </List>
+        
       </Drawer>
       <main
         className={clsx(classes.content, {

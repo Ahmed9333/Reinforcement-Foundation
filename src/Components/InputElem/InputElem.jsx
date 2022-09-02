@@ -37,14 +37,14 @@ const useStyles = makeStyles(theme => ({
 const InputElem = ({
   data,
   updateValue
-}) => {
+ }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <FormControl
         className={clsx(classes.margin, classes.withoutLabel, classes.textField)}
         // variant="outlined"
-      >
+       >
         <InputLabel htmlFor="outlined-adornment-amount">{data.description}</InputLabel>
         <Input
           className={classes.input}

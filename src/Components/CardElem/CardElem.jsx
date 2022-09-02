@@ -24,8 +24,8 @@ const useStyles = makeStyles(theme => ({
     transform: 'scale(0.8)',
   },
   title: {
-		fontSize: 23,
-		// color: 'blue'
+		fontSize: 30,
+		color: 'black'
   },
   pos: {
     marginBottom: 12,

@@ -23,15 +23,7 @@ const TableElem = ({
 						<td key={index}>{column}</td>
 					))}
 				</thead>
-				<tbody>
-					{data.rows.map((row, index) =>(
-						<tr key={index}>
-							{Object.keys(row).map((item, i) => (
-								<td key={i}>{`${row[item]}`}</td>
-							))}
-						</tr>
-					))}
-				</tbody>
+				
       </Table>
     </div>
   );

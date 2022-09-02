@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import update from 'immutability-helper';
-import { fromJS } from 'immutable';
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
@@ -8,15 +7,23 @@ import {
   AppBar,
   BottomNavigation,
   BottomNavigationAction,
-  Tabs,
   Box,
   Typography
 } from '@material-ui/core';
 
-import ListAltIcon from '@material-ui/icons/ListAlt';
-import PollIcon from '@material-ui/icons/Poll';
-import Inputs from './Inputs';
-import Outputs from './Outputs';
+import GrainSharp from '@material-ui/icons/GrainSharp';
+import AcUnitSharp from '@material-ui/icons/AcUnitSharp';
+import GridOn from '@material-ui/icons/GridOn';
+import ScreenRotationOutlined from '@material-ui/icons/ScreenRotationOutlined';
+import Receipt from '@material-ui/icons/Receipt';
+import Geometry from './Geometry';
+import Loads from './Loads';
+import Reinforcement from './Reinforcement';
+import Stability from './Stability';
+import ReinforcementOutputs from './ReinforcementOutputs';
+
+import TowerFoundation from './TowerFoundation.png';
+
 
 import initialData from './initialData';
 
@@ -25,6 +32,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2, 2, 0),
   },
   paper: {
+    borderTop: 70,
     paddingBottom: 50,
   },
   list: {
@@ -36,6 +44,7 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     top: 'auto',
     bottom: 0,
+    
   },
   grow: {
     flexGrow: 1,
@@ -46,7 +55,7 @@ const useStyles = makeStyles(theme => ({
     top: -30,
     left: 0,
     right: 0,
-    margin: '0 auto',
+    margin: 'auto',
   },
 }));
 
@@ -84,31 +93,52 @@ function MyApp(props) {
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
-      >
+       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <Inputs 
+          <Geometry 
             inputsData={appData.inputs}
             updateValue={updateValue}
           />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <Outputs
+          <Loads 
+            inputsData={appData.inputs}
+            updateValue={updateValue}
+          />
+        </TabPanel>
+        <TabPanel value={value} index={2} dir={theme.direction}>
+          <Reinforcement 
+            inputsData={appData.inputs}
+            updateValue={updateValue}
+          />
+        </TabPanel>
+        <TabPanel value={value} index={3} dir={theme.direction}>
+          <Stability
+            outputsData={appData.outputs}
+            inputsData={appData.inputs}
+            updateValue={updateValue}
+          />
+        </TabPanel>
+        <TabPanel value={value} index={4} dir={theme.direction}>
+          <ReinforcementOutputs
             outputsData={appData.outputs}
             inputsData={appData.inputs}
             updateValue={updateValue}
           />
         </TabPanel>
       </SwipeableViews>
-     
       <AppBar position="fixed" color="primary" className={classes.appBar}>
         <BottomNavigation
           value={value}
           onChange={handleChange}
           variant="fullWidth"
           showLabels
-        >
-          <BottomNavigationAction label="Inputs"  {...a11yProps(0)} icon={<ListAltIcon />} />
-          <BottomNavigationAction label="Outputs" {...a11yProps(1)} icon={<PollIcon />} />
+         >
+          <BottomNavigationAction label="Geometry"  {...a11yProps(0)} icon={<GridOn />} />
+          <BottomNavigationAction label="Loads"  {...a11yProps(1)} icon={<AcUnitSharp />} />
+          <BottomNavigationAction label="Reinforcement"  {...a11yProps(2)} icon={<GrainSharp />} />
+          <BottomNavigationAction label="Stability" {...a11yProps(3)} icon={<ScreenRotationOutlined />} />
+          <BottomNavigationAction label="ReinforcementOutputs" {...a11yProps(4)} icon={<Receipt />} />
         </BottomNavigation>
       </AppBar>
     </div>
