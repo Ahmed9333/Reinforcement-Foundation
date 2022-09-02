@@ -314,4 +314,5 @@ Votre application devrait être disponible sur **http://example.herokuapp.com**.
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2019 © <a href="http://triazur.com" target="_blank">TRIAZUR</a>.
+- Copyright 2019 © <a href="http://triazur.com" target="_blank">TRIAZUR</a>.#   R e i n f o r c e m e n t - F o u n d a t i o n  
+ 
